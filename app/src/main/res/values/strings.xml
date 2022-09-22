@@ -1,15 +1,11 @@
 <resources>
     <string name="app_name">CryptoInfo</string>
     <string name="list_screen_title">Список криптовалют</string>
-    <string-array name="currency_type">
-        <item>USD</item>
-        <item>EUR</item>
-    </string-array>
+    <string name="usd_currency">USD</string>
+    <string name="eur_currency">EUR</string>
     <string name="list_screen_error_refresh">Произошла ошибка при загрузке</string>
-
     <string name="info_screen_description">Описание</string>
     <string name="info_screen_category">Категории</string>
-    
     <string name="error_load_data">Случилась какая-то ошибка:(\nПопробуем снова?</string>
     <string name="retry_btn_text">Попробовать</string>
 </resources>

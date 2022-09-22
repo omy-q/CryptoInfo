@@ -3,8 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/chip_text_color.xml" value="0.212" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/ic_big_crypto.xml" value="0.2" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/selector_chip_background.xml" value="0.212" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/selector_chip_text_color.xml" value="0.212" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/cryptocurrency_view_holder.xml" value="0.536" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/fragment_cryptocurrency_list.xml" value="0.264" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/screen1.xml" value="0.2" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/toolbar.xml" value="0.4" />
       </map>
     </option>
   </component>

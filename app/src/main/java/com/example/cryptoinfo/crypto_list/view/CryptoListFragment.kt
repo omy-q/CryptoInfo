@@ -19,8 +19,8 @@ class CryptoListFragment :
     }
     private lateinit var cryptoAdapter: CryptoAdapter
     private val listener = object : CryptoListViewHolderListener {
-        override fun onCLick() {
-            presenter.onViewHolderClicked()
+        override fun onCLick(id: String) {
+            presenter.onViewHolderClicked(id)
         }
     }
 
@@ -77,10 +77,10 @@ class CryptoListFragment :
         binding.progressBar.visibility = View.GONE
     }
 
-    override fun navigateToInfoScreen() {
+    override fun navigateToInfoScreen(id: String) {
         requireActivity().supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container, CryptoInfoFragment())
+            .replace(R.id.fragment_container, CryptoInfoFragment.newInstance(id))
             .commit()
     }
 }

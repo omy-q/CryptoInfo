@@ -7,7 +7,8 @@ import com.example.cryptoinfo.crypto_info.view.CryptoInfoView
 import kotlinx.coroutines.launch
 
 class CryptoInfoPresenter(
-    private val facade: CryptoInfoFacade
+    private val facade: CryptoInfoFacade,
+    private val cryptoId: String
 ) : BasePresenter<CryptoInfoView>() {
 
     override fun attachView(view: CryptoInfoView) {

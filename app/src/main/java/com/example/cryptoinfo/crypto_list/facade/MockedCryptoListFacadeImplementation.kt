@@ -28,12 +28,6 @@ class MockedCryptoListFacadeImplementation(
 val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -42,12 +36,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -56,12 +44,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -70,12 +52,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -84,12 +60,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -98,12 +68,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -112,12 +76,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -126,12 +84,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -140,12 +92,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -154,12 +100,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -168,12 +108,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -182,12 +116,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -196,12 +124,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -210,12 +132,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -224,12 +140,6 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
-        "btc",
-        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-        19107.17f,
-        0.96422f
-    ),
-    DomainCryptoListData(
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
@@ -238,12 +148,70 @@ val mockedData: List<DomainCryptoListData> = listOf<DomainCryptoListData>(
     ),
     DomainCryptoListData(
         "bitcoin",
+        "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
         19107.17f,
         0.96422f
     ),
     DomainCryptoListData(
+        "bitcoin",
+        "bitcoin",
+        "btc",
+        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+        19107.17f,
+        0.96422f
+    ),
+    DomainCryptoListData(
+        "bitcoin",
+        "bitcoin",
+        "btc",
+        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+        19107.17f,
+        0.96422f
+    ),
+    DomainCryptoListData(
+        "bitcoin",
+        "bitcoin",
+        "btc",
+        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+        19107.17f,
+        0.96422f
+    ),
+    DomainCryptoListData(
+        "bitcoin",
+        "bitcoin",
+        "btc",
+        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+        19107.17f,
+        0.96422f
+    ),
+    DomainCryptoListData(
+        "bitcoin",
+        "bitcoin",
+        "btc",
+        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+        19107.17f,
+        0.96422f
+    ),
+    DomainCryptoListData(
+        "bitcoin",
+        "bitcoin",
+        "btc",
+        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+        19107.17f,
+        0.96422f
+    ),
+    DomainCryptoListData(
+        "bitcoin",
+        "bitcoin",
+        "btc",
+        "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+        19107.17f,
+        0.96422f
+    ),
+    DomainCryptoListData(
+        "bitcoin",
         "bitcoin",
         "btc",
         "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",

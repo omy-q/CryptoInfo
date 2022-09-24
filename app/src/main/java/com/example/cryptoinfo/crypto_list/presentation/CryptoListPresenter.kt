@@ -39,9 +39,9 @@ class CryptoListPresenter(
         }
     }
 
-    fun onViewHolderClicked() {
+    fun onViewHolderClicked(id: String) {
         withView { view ->
-            view.navigateToInfoScreen()
+            view.navigateToInfoScreen(id)
         }
     }
 

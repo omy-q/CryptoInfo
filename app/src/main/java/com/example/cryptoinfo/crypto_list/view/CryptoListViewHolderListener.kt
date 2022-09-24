@@ -1,5 +1,5 @@
 package com.example.cryptoinfo.crypto_list.view
 
 interface CryptoListViewHolderListener {
-    fun onCLick()
+    fun onCLick(id: String)
 }

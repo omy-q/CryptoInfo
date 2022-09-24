@@ -1,5 +1,6 @@
 package com.example.cryptoinfo.crypto_info.presentation
 
+import android.util.Log
 import com.example.cryptoinfo.base.BasePresenter
 import com.example.cryptoinfo.crypto_info.facade.CryptoInfoFacade
 import com.example.cryptoinfo.crypto_info.model.asUi
@@ -13,6 +14,7 @@ class CryptoInfoPresenter(
 
     override fun attachView(view: CryptoInfoView) {
         super.attachView(view)
+        Log.d("CRYPTO", cryptoId)
         loadData(view)
         view.showLoading()
     }
@@ -20,7 +22,7 @@ class CryptoInfoPresenter(
     private fun loadData(view: CryptoInfoView) {
         withScope {
             launch {
-                facade.getCryptoInfo().withResult { result ->
+                facade.getCryptoInfo(cryptoId).withResult { result ->
                     view.setData(result.asUi())
                     view.hideLoading()
                 }

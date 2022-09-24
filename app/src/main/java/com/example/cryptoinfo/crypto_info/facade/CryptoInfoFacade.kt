@@ -6,5 +6,5 @@ import com.example.cryptoinfo.remote.ApiResult
 typealias SuccessCryptoInfoResult = DomainCryptoInfoData
 
 interface CryptoInfoFacade {
-    suspend fun getCryptoInfo(): ApiResult<SuccessCryptoInfoResult>
+    suspend fun getCryptoInfo(cryptoId: String): ApiResult<SuccessCryptoInfoResult>
 }

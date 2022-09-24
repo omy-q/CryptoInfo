@@ -1,14 +1,14 @@
 package com.example.cryptoinfo.ui
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
 import com.example.cryptoinfo.R
-import kotlin.math.sign
+import com.example.cryptoinfo.isNegative
+import com.example.cryptoinfo.isPositive
 
 class PercentTextView @JvmOverloads constructor(
     context: Context,
@@ -65,12 +65,4 @@ class PercentTextView @JvmOverloads constructor(
     companion object {
         const val percentDefaultValue: Float = 0.00F
     }
-}
-
-fun Float.isNegative(): Boolean {
-    return this.sign == -1f
-}
-
-fun Float.isPositive(): Boolean {
-    return this.sign == 1f || this.sign == 0f
 }

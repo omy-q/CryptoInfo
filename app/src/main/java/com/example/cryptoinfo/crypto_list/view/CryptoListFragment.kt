@@ -55,6 +55,7 @@ class CryptoListFragment :
             layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = cryptoAdapter
+            addItemDecoration(com.example.cryptoinfo.crypto_list.view.CryptoListRecyclerViewDecorator())
         }
     }
 

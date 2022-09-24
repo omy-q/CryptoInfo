@@ -6,6 +6,7 @@ import coil.transform.CircleCropTransformation
 import com.example.cryptoinfo.R
 import com.example.cryptoinfo.base.Binder
 import com.example.cryptoinfo.crypto_list.model.DomainCryptoListData
+import com.example.cryptoinfo.crypto_list.model.TypeCurrency
 import com.example.cryptoinfo.databinding.CryptocurrencyViewHolderBinding
 
 class CryptoViewHolder(
@@ -20,7 +21,8 @@ class CryptoViewHolder(
             error(R.drawable.ic_crypto)
             transformations(CircleCropTransformation())
         }
-        binding.cryptoPrice.text = data.cryptoPrice.toString()
+        binding.cryptoPrice.currencyType = TypeCurrency.EUR
+        binding.cryptoPrice.price = data.cryptoPrice
         binding.cryptoPriceChangePercent.percent = data.cryptoPriceChangePercent
     }
 }

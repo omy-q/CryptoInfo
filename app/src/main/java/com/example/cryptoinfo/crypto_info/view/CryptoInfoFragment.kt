@@ -16,15 +16,15 @@ class CryptoInfoFragment :
     CryptoInfoView {
 
     private val presenter by lazy {
-        val id: String = arguments?.getString(ARGS_KEY) ?: ""
+        val id: String = arguments?.getString(ARGS_KEY_ID) ?: ""
         App.requireComponent().cryptoInfoModule.cryptoInfoPresenter(id)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
-
-        initToolbar()
+        val title = arguments?.getString(ARGS_KEY_NAME) ?: ""
+        initToolbar(title)
     }
 
     override fun onDestroyView() {
@@ -54,8 +54,9 @@ class CryptoInfoFragment :
         binding.progressBar.visibility = View.GONE
     }
 
-    private fun initToolbar() {
+    private fun initToolbar(titleName: String) {
         with(binding.toolbarLayout.toolbar) {
+            title = titleName
             setNavigationIcon(R.drawable.ic_arrow_back)
             setNavigationOnClickListener {
                 requireActivity().onBackPressed()
@@ -64,10 +65,12 @@ class CryptoInfoFragment :
     }
 
     companion object {
-        private const val ARGS_KEY = "id"
-        fun newInstance(id: String): Fragment {
+        private const val ARGS_KEY_ID = "id"
+        private const val ARGS_KEY_NAME = "name"
+        fun newInstance(id: String, name: String): Fragment {
             val args = Bundle()
-            args.putString(ARGS_KEY, id)
+            args.putString(ARGS_KEY_ID, id)
+            args.putString(ARGS_KEY_NAME, name)
             val fragment = CryptoInfoFragment()
             fragment.arguments = args
             return fragment

@@ -1,5 +1,7 @@
 package com.example.cryptoinfo.crypto_list.view
 
+import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
+
 interface CryptoListViewHolderListener {
-    fun onCLick(id: String)
+    fun onCLick(data: UiCryptoListData)
 }

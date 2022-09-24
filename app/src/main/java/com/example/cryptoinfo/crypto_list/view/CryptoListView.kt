@@ -8,5 +8,5 @@ interface CryptoListView : BaseView {
     fun updateData(data: List<UiCryptoListData>)
     fun showLoading()
     fun hideLoading()
-    fun navigateToInfoScreen(id: String)
+    fun navigateToInfoScreen(data: UiCryptoListData)
 }

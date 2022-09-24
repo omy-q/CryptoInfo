@@ -8,9 +8,9 @@ import com.example.cryptoinfo.base.Binder
 import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
 import com.example.cryptoinfo.databinding.CryptocurrencyViewHolderBinding
 
-class CryptoViewHolder(
+class CryptoListViewHolder(
     private val binding: CryptocurrencyViewHolderBinding,
-    private val listener: CryptoViewHolderListener
+    private val listener: CryptoListViewHolderListener
 ) :
     RecyclerView.ViewHolder(binding.root), Binder<UiCryptoListData> {
     override fun bind(data: UiCryptoListData) {

@@ -12,13 +12,13 @@ import com.example.cryptoinfo.databinding.FragmentCryptocurrencyListBinding
 
 class CryptoListFragment :
     BaseFragment<FragmentCryptocurrencyListBinding>(FragmentCryptocurrencyListBinding::inflate),
-    CryptoView {
+    CryptoListView {
 
     private val presenter by lazy {
         App.requireComponent().cryptoListModule.cryptoListPresenter
     }
     private lateinit var cryptoAdapter: CryptoAdapter
-    private val listener = object : CryptoViewHolderListener {
+    private val listener = object : CryptoListViewHolderListener {
         override fun onCLick() {
             presenter.onViewHolderClicked()
         }

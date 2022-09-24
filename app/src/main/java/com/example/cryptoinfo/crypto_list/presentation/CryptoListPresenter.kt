@@ -6,16 +6,16 @@ import com.example.cryptoinfo.crypto_list.model.DomainCryptoListData
 import com.example.cryptoinfo.crypto_list.model.TypeCurrency
 import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
 import com.example.cryptoinfo.crypto_list.model.asUi
-import com.example.cryptoinfo.crypto_list.view.CryptoView
+import com.example.cryptoinfo.crypto_list.view.CryptoListView
 import kotlinx.coroutines.launch
 
 class CryptoListPresenter(
     private val facade: CryptoListFacade
-) : BasePresenter<CryptoView>() {
+) : BasePresenter<CryptoListView>() {
 
     private var lastCurrencyType: TypeCurrency = TypeCurrency.USD
 
-    override fun attachView(view: CryptoView) {
+    override fun attachView(view: CryptoListView) {
         super.attachView(view)
         view.showLoading()
         loadData(view, TypeCurrency.USD)
@@ -45,7 +45,7 @@ class CryptoListPresenter(
         }
     }
 
-    private fun loadData(view: CryptoView, currencyType: TypeCurrency) {
+    private fun loadData(view: CryptoListView, currencyType: TypeCurrency) {
         withScope {
             launch {
                 facade.getCryptoCurrency(currencyType).withResult { result ->

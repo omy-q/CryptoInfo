@@ -2,5 +2,6 @@ package com.example.cryptoinfo.di
 
 class CryptoInfoComponent {
     private val scopeModule = BaseScopeModule()
-    val cryptoListModule = CryptoListModule(scopeModule)
+    private val retrofitModule = RetrofitModule()
+    val cryptoListModule = CryptoListModule(scopeModule, retrofitModule)
 }

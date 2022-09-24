@@ -5,14 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-open class BaseFragment<VB : ViewBinding>(private val inflate: Inflate<VB>) : Fragment() {
+abstract class BaseFragment<VB : ViewBinding>(private val inflate: Inflate<VB>) : Fragment(),
+    BaseView {
 
     private var _binding: VB? = null
     val binding get() = _binding!!
+
+    override val scope: LifecycleCoroutineScope
+        get() = viewLifecycleOwner.lifecycleScope
 
     override fun onCreateView(
         inflater: LayoutInflater,

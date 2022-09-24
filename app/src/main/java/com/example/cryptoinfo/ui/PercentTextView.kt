@@ -9,6 +9,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.cryptoinfo.R
 import com.example.cryptoinfo.isNegative
 import com.example.cryptoinfo.isPositive
+import kotlin.math.abs
 
 class PercentTextView @JvmOverloads constructor(
     context: Context,
@@ -58,7 +59,7 @@ class PercentTextView @JvmOverloads constructor(
         percentTextView.text = context.getString(
             R.string.percent_text_view,
             sign,
-            value
+            abs(value)
         )
     }
 

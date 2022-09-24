@@ -1,11 +1,11 @@
 package com.example.cryptoinfo.crypto_list.view
 
 import com.example.cryptoinfo.base.BaseView
-import com.example.cryptoinfo.crypto_list.model.DomainCryptoListData
+import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
 
 interface CryptoView : BaseView {
-    fun setData(data: List<DomainCryptoListData>)
-    fun updateData(data: List<DomainCryptoListData>)
+    fun setData(data: List<UiCryptoListData>)
+    fun updateData(data: List<UiCryptoListData>)
     fun showLoading()
     fun hideLoading()
 }

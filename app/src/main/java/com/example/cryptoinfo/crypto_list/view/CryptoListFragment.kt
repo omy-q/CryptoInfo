@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cryptoinfo.App
 import com.example.cryptoinfo.base.BaseFragment
-import com.example.cryptoinfo.crypto_list.model.DomainCryptoListData
+import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
 import com.example.cryptoinfo.databinding.FragmentCryptocurrencyListBinding
 
 class CryptoListFragment :
@@ -55,15 +55,15 @@ class CryptoListFragment :
             layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = cryptoAdapter
-            addItemDecoration(com.example.cryptoinfo.crypto_list.view.CryptoListRecyclerViewDecorator())
+            addItemDecoration(CryptoListRecyclerViewDecorator())
         }
     }
 
-    override fun setData(data: List<DomainCryptoListData>) {
+    override fun setData(data: List<UiCryptoListData>) {
         cryptoAdapter.setNewData(data)
     }
 
-    override fun updateData(data: List<DomainCryptoListData>) {
+    override fun updateData(data: List<UiCryptoListData>) {
         cryptoAdapter.addData(data)
     }
 

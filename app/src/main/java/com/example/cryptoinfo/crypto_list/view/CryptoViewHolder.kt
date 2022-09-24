@@ -23,5 +23,8 @@ class CryptoViewHolder(
         binding.cryptoPrice.currencyType = data.cryptoType
         binding.cryptoPrice.price = data.cryptoPrice
         binding.cryptoPriceChangePercent.percent = data.cryptoPriceChangePercent
+        binding.cryptoLayout.setOnClickListener {
+            listener.onCLick()
+        }
     }
 }

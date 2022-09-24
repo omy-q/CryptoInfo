@@ -39,6 +39,12 @@ class CryptoListPresenter(
         }
     }
 
+    fun onViewHolderClicked() {
+        withView { view ->
+            view.navigateToInfoScreen()
+        }
+    }
+
     private fun loadData(view: CryptoView, currencyType: TypeCurrency) {
         withScope {
             launch {

@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cryptoinfo.App
+import com.example.cryptoinfo.R
 import com.example.cryptoinfo.base.BaseFragment
+import com.example.cryptoinfo.crypto_info.view.CryptoInfoFragment
 import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
 import com.example.cryptoinfo.databinding.FragmentCryptocurrencyListBinding
 
@@ -18,7 +20,7 @@ class CryptoListFragment :
     private lateinit var cryptoAdapter: CryptoAdapter
     private val listener = object : CryptoViewHolderListener {
         override fun onCLick() {
-            TODO("Not yet implemented")
+            presenter.onViewHolderClicked()
         }
     }
 
@@ -73,5 +75,12 @@ class CryptoListFragment :
 
     override fun hideLoading() {
         binding.progressBar.visibility = View.GONE
+    }
+
+    override fun navigateToInfoScreen() {
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, CryptoInfoFragment())
+            .commit()
     }
 }

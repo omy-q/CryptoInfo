@@ -35,12 +35,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="8dp"
-        android:textAppearance="@style/TextCryptoInfo.Small.PlusJakartaSansRegular"
+        android:textAppearance="@style/TextCryptoInfo.Small.PlusJakartaSansRegular.AllCaps"
         android:textColor="@color/light_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/crypto_icon"
         app:layout_constraintTop_toBottomOf="@id/crypto_name"
-        tools:text="BTC" />
+        tools:text="btc" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/crypto_price"

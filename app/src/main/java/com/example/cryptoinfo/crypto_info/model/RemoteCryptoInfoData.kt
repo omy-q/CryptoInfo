@@ -20,7 +20,7 @@ fun RemoteCryptoInfoData.asDomain(): DomainCryptoInfoData {
     return DomainCryptoInfoData(
         cryptoId = this.id,
         cryptoName = this.name,
-        cryptoIcon = this.icon.iconSmall,
+        cryptoIcon = this.icon.iconLarge,
         cryptoDescription = this.description.asDomain(),
         cryptoCategory = this.categories
     )

@@ -9,10 +9,7 @@ data class DomainCryptoInfoData(
 )
 
 fun DomainCryptoInfoData.asUi(): UiCryptoIndoData {
-    var categories: String = ""
-    this.cryptoCategory.map {
-        categories = "$categories, "
-    }
+    val categories = this.cryptoCategory.reduceOrNull { acc, s -> "$acc, $s" } ?: ""
     return UiCryptoIndoData(
         cryptoId = this.cryptoId,
         cryptoName = this.cryptoName,

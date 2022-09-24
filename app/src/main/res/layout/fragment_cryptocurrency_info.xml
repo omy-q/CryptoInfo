@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_cryptocurrency_info" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/crypto_icon"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="10.4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_layout"
+            tools:src="@drawable/ic_crypto" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/crypto_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/info_screen_description"
+            android:textAppearance="@style/TextCryptoInfo.Big.RobotoMedium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crypto_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/crypto_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextCryptoInfo.Medium.RobotoRegular"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crypto_description_title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/crypto_category_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/info_screen_category"
+            android:textAppearance="@style/TextCryptoInfo.Big.RobotoMedium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crypto_description" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/crypto_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
+            android:textAppearance="@style/TextCryptoInfo.Medium.RobotoRegular"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crypto_category_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

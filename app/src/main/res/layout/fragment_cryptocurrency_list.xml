@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/toolbar_layout"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar_cryptocurrency_list" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

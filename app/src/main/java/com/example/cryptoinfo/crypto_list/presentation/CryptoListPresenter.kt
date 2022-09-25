@@ -16,10 +16,38 @@ class CryptoListPresenter(
     private var lastCurrencyType: TypeCurrency = TypeCurrency.USD
     private var currentCurrencyType: TypeCurrency = TypeCurrency.USD
 
+    private var page: Int = 1
+    private var isPageEnd: Boolean = false
+    private var isDataLoading: Boolean = false
+
     override fun attachView(view: CryptoListView) {
         super.attachView(view)
         view.showLoading()
         loadData(view, TypeCurrency.USD)
+    }
+
+    override fun detachView() {
+        super.detachView()
+        lastCurrencyType = TypeCurrency.USD
+        currentCurrencyType = TypeCurrency.USD
+        page = 1
+        isPageEnd = false
+    }
+
+    fun onScrolledToDown() {
+        if (isDataLoading) {
+            withView { view ->
+                view.showLoading()
+            }
+        }
+    }
+
+    fun onPreScrolledToDown() {
+        if (!isDataLoading) {
+            withView { view ->
+                loadData(view, currentCurrencyType)
+            }
+        }
     }
 
     fun onUsdChipClicked() {
@@ -54,25 +82,39 @@ class CryptoListPresenter(
     }
 
     private fun loadData(view: CryptoListView, currencyType: TypeCurrency) {
-        currentCurrencyType = currencyType
+        if (currencyType != currentCurrencyType) {
+            page = 1
+            currentCurrencyType = currencyType
+        }
         view.hideError()
-        withScope {
-            launch {
-                facade.getCryptoCurrency(currencyType)
-                    .withResult { result ->
-                        if (lastCurrencyType == currencyType) {
-                            view.updateData(result.toUiData(currencyType))
-                        } else {
-                            view.setData(result.toUiData(currencyType))
+        if (!isPageEnd) {
+            isDataLoading = true
+            withScope {
+                launch {
+                    facade.getCryptoCurrency(currencyType, page)
+                        .withResult { result ->
+                            isDataLoading = false
+                            page += result.size
+                            if (result.size < CryptoListFacade.PER_PAGE) {
+                                isPageEnd = true
+                            }
+                            if (lastCurrencyType == currencyType) {
+                                view.updateData(result.toUiData(currencyType))
+                            } else {
+                                view.setData(result.toUiData(currencyType))
+                            }
+                            lastCurrencyType = currencyType
+                            view.hideLoading()
                         }
-                        lastCurrencyType = currencyType
-                        view.hideLoading()
-                    }
-                    .withError {
-                        view.hideLoading()
-                        view.showError()
-                    }
+                        .withError {
+                            isDataLoading = false
+                            view.hideLoading()
+                            view.showError()
+                        }
+                }
             }
+        } else {
+            isDataLoading = false
         }
     }
 

@@ -3,6 +3,8 @@ package com.example.cryptoinfo.crypto_list.model
 import com.google.gson.annotations.SerializedName
 
 data class RemoteCryptoListData(
+    @SerializedName("id")
+    val cryptoId: String,
     @SerializedName("name")
     val cryptoName: String,
     @SerializedName("symbol")
@@ -17,6 +19,7 @@ data class RemoteCryptoListData(
 
 fun RemoteCryptoListData.asDomain(): DomainCryptoListData {
     return DomainCryptoListData(
+        cryptoId = this.cryptoId,
         cryptoName = this.cryptoName,
         cryptoShortName = this.cryptoShortName,
         cryptoIcon = this.cryptoIcon,

@@ -12,15 +12,15 @@ import com.example.cryptoinfo.databinding.FragmentCryptocurrencyListBinding
 
 class CryptoListFragment :
     BaseFragment<FragmentCryptocurrencyListBinding>(FragmentCryptocurrencyListBinding::inflate),
-    CryptoView {
+    CryptoListView {
 
     private val presenter by lazy {
         App.requireComponent().cryptoListModule.cryptoListPresenter
     }
     private lateinit var cryptoAdapter: CryptoAdapter
-    private val listener = object : CryptoViewHolderListener {
-        override fun onCLick() {
-            presenter.onViewHolderClicked()
+    private val listener = object : CryptoListViewHolderListener {
+        override fun onCLick(data: UiCryptoListData) {
+            presenter.onViewHolderClicked(data)
         }
     }
 
@@ -77,10 +77,14 @@ class CryptoListFragment :
         binding.progressBar.visibility = View.GONE
     }
 
-    override fun navigateToInfoScreen() {
+    override fun navigateToInfoScreen(data: UiCryptoListData) {
         requireActivity().supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container, CryptoInfoFragment())
+            .replace(
+                R.id.fragment_container,
+                CryptoInfoFragment.newInstance(data.cryptoId, data.cryptoName)
+            )
+            .addToBackStack(null)
             .commit()
     }
 }

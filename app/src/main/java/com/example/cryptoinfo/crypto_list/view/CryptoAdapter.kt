@@ -8,7 +8,7 @@ import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
 import com.example.cryptoinfo.databinding.CryptocurrencyViewHolderBinding
 
 class CryptoAdapter(
-    private val listener: CryptoViewHolderListener
+    private val listener: CryptoListViewHolderListener
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val data: MutableList<UiCryptoListData> = mutableListOf()
 
@@ -24,7 +24,7 @@ class CryptoAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return CryptoViewHolder(
+        return CryptoListViewHolder(
             CryptocurrencyViewHolderBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,

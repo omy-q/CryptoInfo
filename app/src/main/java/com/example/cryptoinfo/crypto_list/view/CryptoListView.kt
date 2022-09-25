@@ -9,4 +9,6 @@ interface CryptoListView : BaseView {
     fun showLoading()
     fun hideLoading()
     fun navigateToInfoScreen(data: UiCryptoListData)
+    fun showError()
+    fun hideError()
 }

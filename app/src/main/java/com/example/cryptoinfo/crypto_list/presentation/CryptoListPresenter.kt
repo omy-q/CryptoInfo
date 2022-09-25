@@ -14,6 +14,7 @@ class CryptoListPresenter(
 ) : BasePresenter<CryptoListView>() {
 
     private var lastCurrencyType: TypeCurrency = TypeCurrency.USD
+    private var currentCurrencyType: TypeCurrency = TypeCurrency.USD
 
     override fun attachView(view: CryptoListView) {
         super.attachView(view)
@@ -45,18 +46,32 @@ class CryptoListPresenter(
         }
     }
 
+    fun onRetryClicked() {
+        withView { view ->
+            view.showLoading()
+            loadData(view, currentCurrencyType)
+        }
+    }
+
     private fun loadData(view: CryptoListView, currencyType: TypeCurrency) {
+        currentCurrencyType = currencyType
+        view.hideError()
         withScope {
             launch {
-                facade.getCryptoCurrency(currencyType).withResult { result ->
-                    if (lastCurrencyType == currencyType) {
-                        view.updateData(result.toUiData(currencyType))
-                    } else {
-                        view.setData(result.toUiData(currencyType))
+                facade.getCryptoCurrency(currencyType)
+                    .withResult { result ->
+                        if (lastCurrencyType == currencyType) {
+                            view.updateData(result.toUiData(currencyType))
+                        } else {
+                            view.setData(result.toUiData(currencyType))
+                        }
+                        lastCurrencyType = currencyType
+                        view.hideLoading()
                     }
-                    lastCurrencyType = currencyType
-                    view.hideLoading()
-                }
+                    .withError {
+                        view.hideLoading()
+                        view.showError()
+                    }
             }
         }
     }

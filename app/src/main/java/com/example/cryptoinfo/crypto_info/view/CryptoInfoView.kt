@@ -7,4 +7,6 @@ interface CryptoInfoView : BaseView {
     fun setData(data: UiCryptoIndoData)
     fun showLoading()
     fun hideLoading()
+    fun showError()
+    fun hideError()
 }

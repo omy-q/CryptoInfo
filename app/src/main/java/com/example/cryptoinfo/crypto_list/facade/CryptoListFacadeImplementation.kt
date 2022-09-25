@@ -5,7 +5,6 @@ import com.example.cryptoinfo.crypto_list.model.asDomain
 import com.example.cryptoinfo.remote.ApiResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
-import retrofit2.HttpException
 
 class CryptoListFacadeImplementation(
     private val scope: CoroutineScope,
@@ -17,8 +16,8 @@ class CryptoListFacadeImplementation(
                 ApiResult.create(
                     service.getListOfCryptoCurrency(typeCurrency).map { it.asDomain() }
                 )
-            } catch (e: HttpException) {
-                TODO()
+            } catch (e: Exception) {
+                ApiResult.create(ApiResult.CryptoInfoError())
             }
         }
         return task.await()

@@ -42,6 +42,10 @@
         <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
+    <style name="TextCryptoInfo.Small.RobotoMedium.AllCaps">
+        <item name="textAllCaps">true</item>
+    </style>
+
     <style name="TextCryptoInfo.Small.RobotoRegular">
         <item name="fontFamily">@font/roboto_regular</item>
         <item name="android:fontFamily">@font/roboto_regular</item>

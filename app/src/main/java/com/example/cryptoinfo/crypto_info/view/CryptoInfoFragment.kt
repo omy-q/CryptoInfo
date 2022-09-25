@@ -26,6 +26,7 @@ class CryptoInfoFragment :
         presenter.attachView(this)
         val title = arguments?.getString(ARGS_KEY_NAME) ?: ""
         initToolbar(title)
+        initErrorLayout()
     }
 
     override fun onDestroyView() {
@@ -34,8 +35,6 @@ class CryptoInfoFragment :
     }
 
     override fun setData(data: UiCryptoIndoData) {
-        binding.cryptoCategoryTitle.visibility = View.VISIBLE
-        binding.cryptoCategoryTitle.visibility = View.VISIBLE
         binding.toolbarLayout.toolbar.title = data.cryptoName
         binding.cryptoDescription.text = data.cryptoDescription
         binding.cryptoCategory.text = data.cryptoCategory
@@ -43,16 +42,27 @@ class CryptoInfoFragment :
             error(R.drawable.ic_crypto)
             transformations(CircleCropTransformation())
         }
+        showContent()
     }
 
     override fun showLoading() {
         binding.progressBar.visibility = View.VISIBLE
-        binding.cryptoCategoryTitle.visibility = View.GONE
-        binding.cryptoCategoryTitle.visibility = View.GONE
+        hideContent()
     }
 
     override fun hideLoading() {
         binding.progressBar.visibility = View.GONE
+    }
+
+    override fun showError() {
+        binding.errorLayout.root.visibility = View.VISIBLE
+        binding.errorLayout.retryButton.isEnabled = true
+        binding.errorLayout.retryButton.visibility = View.VISIBLE
+        hideContent()
+    }
+
+    override fun hideError() {
+        binding.errorLayout.root.visibility = View.GONE
     }
 
     override fun onBackPressed(): Boolean {
@@ -66,6 +76,30 @@ class CryptoInfoFragment :
             setNavigationOnClickListener {
                 requireActivity().onBackPressed()
             }
+        }
+    }
+
+    private fun showContent() {
+        binding.cryptoDescriptionTitle.visibility = View.VISIBLE
+        binding.cryptoCategoryTitle.visibility = View.VISIBLE
+        binding.cryptoDescription.visibility = View.VISIBLE
+        binding.cryptoCategory.visibility = View.VISIBLE
+        binding.cryptoIcon.visibility = View.VISIBLE
+    }
+
+    private fun hideContent() {
+        binding.cryptoDescriptionTitle.visibility = View.GONE
+        binding.cryptoCategoryTitle.visibility = View.GONE
+        binding.cryptoDescription.visibility = View.GONE
+        binding.cryptoCategory.visibility = View.GONE
+        binding.cryptoIcon.visibility = View.GONE
+    }
+
+    private fun initErrorLayout() {
+        binding.errorLayout.retryButton.setOnClickListener {
+            binding.errorLayout.retryButton.isEnabled = false
+            binding.errorLayout.retryButton.visibility = View.GONE
+            presenter.onRetryClicked()
         }
     }
 

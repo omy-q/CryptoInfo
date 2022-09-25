@@ -8,12 +8,13 @@ import coil.transform.CircleCropTransformation
 import com.example.cryptoinfo.App
 import com.example.cryptoinfo.R
 import com.example.cryptoinfo.base.BaseFragment
+import com.example.cryptoinfo.base.OnBackButtonListener
 import com.example.cryptoinfo.crypto_info.model.UiCryptoIndoData
 import com.example.cryptoinfo.databinding.FragmentCryptocurrencyInfoBinding
 
 class CryptoInfoFragment :
     BaseFragment<FragmentCryptocurrencyInfoBinding>(FragmentCryptocurrencyInfoBinding::inflate),
-    CryptoInfoView {
+    CryptoInfoView, OnBackButtonListener {
 
     private val presenter by lazy {
         val id: String = arguments?.getString(ARGS_KEY_ID) ?: ""
@@ -52,6 +53,10 @@ class CryptoInfoFragment :
 
     override fun hideLoading() {
         binding.progressBar.visibility = View.GONE
+    }
+
+    override fun onBackPressed(): Boolean {
+        return false
     }
 
     private fun initToolbar(titleName: String) {

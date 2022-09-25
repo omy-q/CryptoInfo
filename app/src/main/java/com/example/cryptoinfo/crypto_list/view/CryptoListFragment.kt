@@ -80,7 +80,11 @@ class CryptoListFragment :
     override fun navigateToInfoScreen(data: UiCryptoListData) {
         requireActivity().supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container, CryptoInfoFragment.newInstance(data.cryptoId, data.cryptoName))
+            .replace(
+                R.id.fragment_container,
+                CryptoInfoFragment.newInstance(data.cryptoId, data.cryptoName)
+            )
+            .addToBackStack(null)
             .commit()
     }
 }

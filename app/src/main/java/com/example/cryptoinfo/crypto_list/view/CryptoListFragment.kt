@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoinfo.App
 import com.example.cryptoinfo.R
 import com.example.cryptoinfo.base.BaseFragment
@@ -22,6 +23,22 @@ class CryptoListFragment :
     private val listener = object : CryptoListViewHolderListener {
         override fun onCLick(data: UiCryptoListData) {
             presenter.onViewHolderClicked(data)
+        }
+    }
+    private val itemCountBeforeListScrollToDown = 10
+    private val scrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            val layoutManager: LinearLayoutManager? =
+                recyclerView.layoutManager as? LinearLayoutManager
+            val totalItemCount = layoutManager?.itemCount ?: 0
+            val lastVisibleItemPosition = layoutManager?.findLastVisibleItemPosition() ?: 0
+
+            if (lastVisibleItemPosition + 1 == totalItemCount) {
+                presenter.onScrolledToDown()
+            } else if (lastVisibleItemPosition + 1 + itemCountBeforeListScrollToDown >= totalItemCount) {
+                presenter.onPreScrolledToDown()
+            }
         }
     }
 
@@ -68,6 +85,7 @@ class CryptoListFragment :
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = cryptoAdapter
             addItemDecoration(CryptoListRecyclerViewDecorator())
+            addOnScrollListener(scrollListener)
         }
     }
 

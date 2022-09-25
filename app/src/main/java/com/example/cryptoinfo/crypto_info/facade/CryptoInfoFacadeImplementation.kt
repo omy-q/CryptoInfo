@@ -4,7 +4,6 @@ import com.example.cryptoinfo.crypto_info.model.asDomain
 import com.example.cryptoinfo.remote.ApiResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
-import retrofit2.HttpException
 
 class CryptoInfoFacadeImplementation(
     private val scope: CoroutineScope,
@@ -16,8 +15,8 @@ class CryptoInfoFacadeImplementation(
                 ApiResult.create(
                     service.getCryptoInfo(cryptoId).asDomain()
                 )
-            } catch (e: HttpException) {
-                TODO()
+            } catch (e: Exception) {
+                ApiResult.create(ApiResult.CryptoInfoError())
             }
         }
         return task.await()

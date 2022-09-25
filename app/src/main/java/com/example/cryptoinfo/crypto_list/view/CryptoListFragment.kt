@@ -2,6 +2,7 @@ package com.example.cryptoinfo.crypto_list.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cryptoinfo.App
 import com.example.cryptoinfo.R
@@ -70,14 +71,22 @@ class CryptoListFragment :
         }
     }
 
-    override fun setData(data: List<UiCryptoListData>) {
+    override fun setData(newData: List<UiCryptoListData>) {
         showContent()
-        cryptoAdapter.setNewData(data)
+        val diffUtilCallback = CryptoListDiffUtilCallback(cryptoAdapter.getData(), newData)
+        val diffUtilResult = DiffUtil.calculateDiff(diffUtilCallback)
+        cryptoAdapter.setNewData(newData)
+        diffUtilResult.dispatchUpdatesTo(cryptoAdapter)
+
     }
 
     override fun updateData(data: List<UiCryptoListData>) {
         showContent()
+        val newData = cryptoAdapter.getData() + data
+        val diffUtilCallback = CryptoListDiffUtilCallback(cryptoAdapter.getData(), newData)
+        val diffUtilResult = DiffUtil.calculateDiff(diffUtilCallback)
         cryptoAdapter.addData(data)
+        diffUtilResult.dispatchUpdatesTo(cryptoAdapter)
     }
 
     override fun showLoading() {

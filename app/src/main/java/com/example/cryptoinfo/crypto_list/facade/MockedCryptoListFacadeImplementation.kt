@@ -11,7 +11,10 @@ import retrofit2.HttpException
 class MockedCryptoListFacadeImplementation(
     private val scope: CoroutineScope
 ) : CryptoListFacade {
-    override suspend fun getCryptoCurrency(typeCurrency: TypeCurrency): ApiResult<SuccessCryptoListResult> {
+    override suspend fun getCryptoCurrency(
+        typeCurrency: TypeCurrency,
+        page: Int
+    ): ApiResult<SuccessCryptoListResult> {
         val task = scope.async {
             try {
                 delay(3000)

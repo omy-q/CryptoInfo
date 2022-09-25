@@ -10,11 +10,19 @@ class CryptoListFacadeImplementation(
     private val scope: CoroutineScope,
     private val service: CryptoListService
 ) : CryptoListFacade {
-    override suspend fun getCryptoCurrency(typeCurrency: TypeCurrency): ApiResult<SuccessCryptoListResult> {
+    override suspend fun getCryptoCurrency(
+        typeCurrency: TypeCurrency,
+        page: Int
+    ): ApiResult<SuccessCryptoListResult> {
         val task = scope.async {
             try {
                 ApiResult.create(
-                    service.getListOfCryptoCurrency(typeCurrency).map { it.asDomain() }
+                    service.getListOfCryptoCurrency(
+                        currencyType = typeCurrency,
+                        perPage = CryptoListFacade.PER_PAGE,
+                        page = page,
+                        order = CryptoListFacade.ORDER
+                    ).map { it.asDomain() }
                 )
             } catch (e: Exception) {
                 ApiResult.create(ApiResult.CryptoInfoError())

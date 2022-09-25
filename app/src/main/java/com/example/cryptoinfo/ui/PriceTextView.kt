@@ -6,6 +6,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.cryptoinfo.R
 import com.example.cryptoinfo.crypto_list.model.TypeCurrency
+import java.text.DecimalFormat
 
 class PriceTextView @JvmOverloads constructor(
     context: Context,
@@ -40,8 +41,13 @@ class PriceTextView @JvmOverloads constructor(
         priceTextView.text = context.getString(
             R.string.price_text_view,
             sign,
-            value
+            summaryToString(value)
         )
+    }
+
+    private fun summaryToString(summary: Float): String {
+        val format = DecimalFormat("###,##0.00")
+        return format.format(summary)
     }
 
     companion object {

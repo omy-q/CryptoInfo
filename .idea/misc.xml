@@ -6,12 +6,15 @@
         <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/chip_text_color.xml" value="0.212" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1295" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/ic_big_crypto.xml" value="0.2" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/ripple.xml" value="0.1565" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/selector_chip_background.xml" value="0.212" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/selector_chip_text_color.xml" value="0.212" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/drawable/shape_retry_btn.xml" value="0.1765" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/cryptocurrency_view_holder.xml" value="0.7972972972972973" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/error_layout.xml" value="0.264" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/fragment_cryptocurrency_info.xml" value="0.12" />
-        <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/fragment_cryptocurrency_list.xml" value="0.12" />
+        <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/fragment_cryptocurrency_list.xml" value="0.264" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/percent_text_view.xml" value="1.6" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/price_text_view.xml" value="0.17572463768115942" />
         <entry key="..\:/android/CryptoInfo/app/src/main/res/layout/screen1.xml" value="0.2" />

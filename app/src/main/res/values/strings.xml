@@ -10,8 +10,8 @@
     <string name="retry_btn_text">Попробовать</string>
     <string name="plus_prefix">"+ "</string>
     <string name="minus_prefix">"- "</string>
-    <string name="percent_text_view">%1$s%2$f%%</string>
+    <string name="percent_text_view">%1$s%%</string>
     <string name="usd_prefix">"$ "</string>
     <string name="eur_prefix">"€ "</string>
-    <string name="price_text_view">%1$s%2$f</string>
+    <string name="price_text_view">%1$s%2$s</string>
 </resources>

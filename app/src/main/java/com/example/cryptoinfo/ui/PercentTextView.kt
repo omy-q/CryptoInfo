@@ -9,6 +9,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.cryptoinfo.R
 import com.example.cryptoinfo.isNegative
 import com.example.cryptoinfo.isPositive
+import java.text.DecimalFormat
 import kotlin.math.abs
 
 class PercentTextView @JvmOverloads constructor(
@@ -40,27 +41,29 @@ class PercentTextView @JvmOverloads constructor(
     }
 
     private fun updateColor(value: Float) {
-        val sign: String
         when {
             value.isNegative() -> {
-                sign = context.getString(R.string.minus_prefix)
                 percentTextView.setTextColor(colorNegative)
             }
             value.isPositive() -> {
-                sign = context.getString(R.string.plus_prefix)
                 percentTextView.setTextColor(colorPossitive)
             }
             else -> {
-                sign = ""
                 percentTextView.setTextColor(colorPossitive)
             }
         }
 
         percentTextView.text = context.getString(
             R.string.percent_text_view,
-            sign,
-            abs(value)
+            summaryToString(value)
         )
+    }
+
+    private fun summaryToString(summary: Float): String {
+        val format = DecimalFormat("###,##0.00")
+        format.positivePrefix = context.getString(R.string.plus_prefix)
+        format.negativePrefix = context.getString(R.string.minus_prefix)
+        return format.format(summary)
     }
 
     companion object {

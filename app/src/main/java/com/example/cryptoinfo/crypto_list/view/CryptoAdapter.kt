@@ -14,14 +14,14 @@ class CryptoAdapter(
 
     fun addData(data: List<UiCryptoListData>) {
         this.data.addAll(data)
-        notifyDataSetChanged()
     }
 
     fun setNewData(data: List<UiCryptoListData>) {
         this.data.clear()
         this.data.addAll(data)
-        notifyDataSetChanged()
     }
+
+    fun getData() = data
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CryptoListViewHolder(

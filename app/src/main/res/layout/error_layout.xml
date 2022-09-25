@@ -30,7 +30,7 @@
         android:layout_width="175dp"
         android:layout_height="36dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/shape_retry_btn"
+        android:background="@drawable/ripple_retry_btn"
         android:text="@string/retry_btn_text"
         android:textAppearance="@style/TextCryptoInfo.Small.RobotoMedium.AllCaps"
         android:textColor="@color/white" />

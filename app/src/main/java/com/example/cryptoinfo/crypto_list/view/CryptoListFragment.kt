@@ -30,11 +30,20 @@ class CryptoListFragment :
         cryptoAdapter = CryptoAdapter(listener)
         initRecyclerView()
         initChips()
+        initErrorLayout()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.detachView()
+    }
+
+    private fun initErrorLayout() {
+        binding.errorLayout.retryButton.setOnClickListener {
+            binding.errorLayout.retryButton.isEnabled = false
+            binding.errorLayout.retryButton.visibility = View.GONE
+            presenter.onRetryClicked()
+        }
     }
 
     private fun initChips() {
@@ -62,10 +71,12 @@ class CryptoListFragment :
     }
 
     override fun setData(data: List<UiCryptoListData>) {
+        showContent()
         cryptoAdapter.setNewData(data)
     }
 
     override fun updateData(data: List<UiCryptoListData>) {
+        showContent()
         cryptoAdapter.addData(data)
     }
 
@@ -86,5 +97,24 @@ class CryptoListFragment :
             )
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun showError() {
+        binding.errorLayout.root.visibility = View.VISIBLE
+        binding.errorLayout.retryButton.isEnabled = true
+        binding.errorLayout.retryButton.visibility = View.VISIBLE
+        hideContent()
+    }
+
+    override fun hideError() {
+        binding.errorLayout.root.visibility = View.GONE
+    }
+
+    private fun showContent() {
+        binding.recyclerView.visibility = View.VISIBLE
+    }
+
+    private fun hideContent() {
+        binding.recyclerView.visibility = View.GONE
     }
 }

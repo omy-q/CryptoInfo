@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/crypto_layout"
-    android:background="@drawable/ripple"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/crypto_icon"
@@ -20,12 +20,15 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/crypto_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:lines="1"
         android:textAppearance="@style/TextCryptoInfo.Medium.PlusJakartaSansMedium"
         android:textColor="@color/gray"
+        app:layout_constraintEnd_toStartOf="@id/crypto_price"
         app:layout_constraintStart_toEndOf="@id/crypto_icon"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Bitcoin" />

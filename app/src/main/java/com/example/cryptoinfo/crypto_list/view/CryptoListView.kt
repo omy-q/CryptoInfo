@@ -11,4 +11,5 @@ interface CryptoListView : BaseView {
     fun navigateToInfoScreen(data: UiCryptoListData)
     fun showError()
     fun hideError()
+    fun showSnackBarError()
 }

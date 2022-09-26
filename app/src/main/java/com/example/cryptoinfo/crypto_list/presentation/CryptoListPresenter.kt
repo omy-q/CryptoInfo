@@ -13,12 +13,13 @@ class CryptoListPresenter(
     private val facade: CryptoListFacade
 ) : BasePresenter<CryptoListView>() {
 
-    private var lastCurrencyType: TypeCurrency = TypeCurrency.USD
+    private var lastCurrencyType: TypeCurrency = TypeCurrency.EUR
     private var currentCurrencyType: TypeCurrency = TypeCurrency.USD
 
     private var page: Int = 1
     private var isPageEnd: Boolean = false
     private var isDataLoading: Boolean = false
+    private var isRefreshError: Boolean = false
 
     override fun attachView(view: CryptoListView) {
         super.attachView(view)
@@ -28,10 +29,25 @@ class CryptoListPresenter(
 
     override fun detachView() {
         super.detachView()
-        lastCurrencyType = TypeCurrency.USD
-        currentCurrencyType = TypeCurrency.USD
-        page = 1
-        isPageEnd = false
+        initData()
+    }
+
+    fun onRefresh(isUsdChipChecked: Boolean) {
+        if (!isDataLoading) {
+            initData()
+            if (isUsdChipChecked) {
+                lastCurrencyType = TypeCurrency.EUR
+                currentCurrencyType = TypeCurrency.USD
+            } else {
+                lastCurrencyType = TypeCurrency.USD
+                currentCurrencyType = TypeCurrency.EUR
+            }
+            isRefreshError = true
+            withView { view ->
+                view.showLoading()
+                loadData(view, currentCurrencyType)
+            }
+        }
     }
 
     fun onScrolledToDown() {
@@ -109,13 +125,27 @@ class CryptoListPresenter(
                         .withError {
                             isDataLoading = false
                             view.hideLoading()
-                            view.showError()
+                            if (isRefreshError) {
+                                isRefreshError = false
+                                view.showSnackBarError()
+                            } else {
+                                view.showError()
+                            }
                         }
                 }
             }
         } else {
             isDataLoading = false
         }
+    }
+
+    private fun initData() {
+        lastCurrencyType = TypeCurrency.EUR
+        currentCurrencyType = TypeCurrency.USD
+        page = 1
+        isPageEnd = false
+        isDataLoading = false
+        isRefreshError = false
     }
 
     private fun List<DomainCryptoListData>.toUiData(currencyType: TypeCurrency): List<UiCryptoListData> {

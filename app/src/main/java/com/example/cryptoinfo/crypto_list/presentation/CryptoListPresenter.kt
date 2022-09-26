@@ -19,6 +19,7 @@ class CryptoListPresenter(
     private var page: Int = 1
     private var isPageEnd: Boolean = false
     private var isDataLoading: Boolean = false
+    private var isRefreshError: Boolean = false
 
     override fun attachView(view: CryptoListView) {
         super.attachView(view)
@@ -41,6 +42,7 @@ class CryptoListPresenter(
                 lastCurrencyType = TypeCurrency.USD
                 currentCurrencyType = TypeCurrency.EUR
             }
+            isRefreshError = true
             withView { view ->
                 view.showLoading()
                 loadData(view, currentCurrencyType)
@@ -123,7 +125,12 @@ class CryptoListPresenter(
                         .withError {
                             isDataLoading = false
                             view.hideLoading()
-                            view.showError()
+                            if (isRefreshError) {
+                                isRefreshError = false
+                                view.showSnackBarError()
+                            } else {
+                                view.showError()
+                            }
                         }
                 }
             }
@@ -138,6 +145,7 @@ class CryptoListPresenter(
         page = 1
         isPageEnd = false
         isDataLoading = false
+        isRefreshError = false
     }
 
     private fun List<DomainCryptoListData>.toUiData(currencyType: TypeCurrency): List<UiCryptoListData> {

@@ -2,6 +2,8 @@ package com.example.cryptoinfo.crypto_list.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +13,7 @@ import com.example.cryptoinfo.base.BaseFragment
 import com.example.cryptoinfo.crypto_info.view.CryptoInfoFragment
 import com.example.cryptoinfo.crypto_list.model.UiCryptoListData
 import com.example.cryptoinfo.databinding.FragmentCryptocurrencyListBinding
+import com.google.android.material.snackbar.Snackbar
 
 class CryptoListFragment :
     BaseFragment<FragmentCryptocurrencyListBinding>(FragmentCryptocurrencyListBinding::inflate),
@@ -143,6 +146,21 @@ class CryptoListFragment :
 
     override fun hideError() {
         binding.errorLayout.root.visibility = View.GONE
+    }
+
+    override fun showSnackBarError() {
+        val snack = Snackbar.make(
+            binding.recyclerView,
+            requireContext().getString(R.string.list_screen_error_refresh),
+            Snackbar.LENGTH_LONG
+        )
+            .setTextColor(ResourcesCompat.getColor(resources, R.color.white, null))
+            .setBackgroundTint(ResourcesCompat.getColor(resources, R.color.red, null))
+
+        val textView =
+            snack.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+        textView.setTextAppearance(R.style.TextCryptoInfo_Small_RobotoRegular)
+        snack.show()
     }
 
     private fun showContent() {

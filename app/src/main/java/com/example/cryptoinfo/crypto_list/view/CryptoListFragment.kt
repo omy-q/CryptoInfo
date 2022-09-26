@@ -164,10 +164,12 @@ class CryptoListFragment :
     }
 
     private fun showContent() {
+        binding.refreshLayout.isEnabled  = true
         binding.recyclerView.visibility = View.VISIBLE
     }
 
     private fun hideContent() {
+        binding.refreshLayout.isEnabled  = false
         binding.recyclerView.visibility = View.GONE
     }
 }

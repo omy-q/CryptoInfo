@@ -49,11 +49,19 @@ class CryptoListFragment :
         initRecyclerView()
         initChips()
         initErrorLayout()
+        initRefreshLayout()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.detachView()
+    }
+
+    private fun initRefreshLayout() {
+        binding.refreshLayout.setOnRefreshListener {
+            presenter.onRefresh(binding.toolbarLayout.usd.isChecked)
+            binding.refreshLayout.isRefreshing = false
+        }
     }
 
     private fun initErrorLayout() {
